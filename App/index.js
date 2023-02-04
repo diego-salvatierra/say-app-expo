@@ -12,6 +12,14 @@ import { supabase } from './lib/supabase'
 import Phrasebook from './screens/Phrasebook';
 import Home from './screens/Home';
 import { getHeaderTitle } from '@react-navigation/elements';
+import * as Sentry from 'sentry-expo';
+
+Sentry.init({
+  dsn: 'https://5a92132c278b42a79bb122eb9c511e43@o4504618398908416.ingest.sentry.io/4504618595713024',
+  enableInExpoDevelopment: true,
+  debug: true, // If `true`, Sentry will try to print out useful debugging information if something goes wrong with sending the event. Set it to `false` in production
+});
+
 
 /*import * as dotenv from 'dotenv' 
 import express from 'express'
@@ -136,7 +144,14 @@ const PAGE_WIDTH = Dimensions.get('window').width;
 const Drawer = createDrawerNavigator();
 
 // add linear gradient to navigation container 
+
+
 export default function App() {
+
+  // Sentry try
+  
+  try {
+    // your code
 
   const [session, setSession] = useState()
 
@@ -176,6 +191,10 @@ export default function App() {
     </NativeBaseProvider>
     </NavigationContainer>
   );
+
+  } catch (error) {
+    Sentry.Native.captureException(error);
+  }
 }
 
 const styles = StyleSheet.create({

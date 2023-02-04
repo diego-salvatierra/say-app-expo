@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "say-app-expo",
-    "slug": "say-app-expo",
-    "version": "1.0.0",
+    "name": "say-app",
+    "slug": "say-app",
+    "version": "1.0.5",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
@@ -12,13 +12,15 @@
       "backgroundColor": "#ffffff"
     },
     "updates": {
-      "fallbackToCacheTimeout": 0
+      "fallbackToCacheTimeout": 0,
+      "url": "https://u.expo.dev/6aa1b741-c85e-4b51-9595-b62a6c9659d5"
     },
     "assetBundlePatterns": [
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.impulsaeducation.say"
     },
     "android": {
       "adaptiveIcon": {
@@ -28,6 +30,29 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "6aa1b741-c85e-4b51-9595-b62a6c9659d5"
+      }
+    },
+    "plugins": [
+      "sentry-expo"
+    ],
+    "hooks": {
+      "postPublish": [
+        {
+          "file": "sentry-expo/upload-sourcemaps",
+          "config": {
+            "organization": "impulsa-co",
+            "project": "say-app",
+            "authToken": "d7fcd09ecf8a4435a4c1d02650a46a57fffbf815b51f4492a265cd457bd634ab"
+          }
+        }
+      ]
+    },
+    "runtimeVersion": {
+      "policy": "appVersion"
     }
   }
 }
