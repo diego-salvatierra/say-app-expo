@@ -6,6 +6,7 @@ import SentenceTest from "./SentenceTest";
 import SentenceFixer from "./SentenceFixer";
 import SaveButton from "./SaveButton";
 import SayWhisper from "../whisper/SayWhisper";
+import SayGoogle from "../lib/SayGoogle";
 
 const styles = StyleSheet.create({
     buttonContainer: {
